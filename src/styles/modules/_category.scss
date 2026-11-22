@@ -33,38 +33,17 @@
     @include on-tablet {
       grid-column: span 3;
     }
-  }
 
-  &--wide-left &__media--1 {
     @include on-desktop {
-      grid-column: span 8;
-    }
-  }
-
-  &--wide-left &__media--2 {
-    @include on-desktop {
-      grid-column: span 4;
-    }
-  }
-
-  &--wide-right &__media--1 {
-    @include on-desktop {
-      grid-column: span 4;
-    }
-  }
-
-  &--wide-right &__media--2 {
-    @include on-desktop {
-      grid-column: span 8;
+      grid-column: span 6;
     }
   }
 
   &__img {
     width: 100%;
     height: 130px;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
-    mix-blend-mode: multiply;
     transition: transform $transition-base;
 
     @include on-tablet {
