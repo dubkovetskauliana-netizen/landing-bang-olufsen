@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 280px;
+  height: 56px;
+  padding-inline: 48px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 27px;
+  color: $color-text-inverse;
+  background-color: $color-accent;
+  border: 0;
+  border-radius: $radius-control;
+  cursor: pointer;
+  transition:
+    background-color $transition-base,
+    transform 0.15s ease;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $color-accent-hover;
+  }
+
+  &:active {
+    background-color: $color-accent-active;
+  }
+}

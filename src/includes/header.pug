@@ -1,0 +1,12 @@
+header.header
+  .l-container
+    .top-bar
+      a.top-bar__logo(href='#', aria-label='Bang & Olufsen home')
+        +icon('logo', 245, 24)
+      .top-bar__actions
+        a.phone-link(href=site.phoneHref, aria-label=`Call us ${site.phone}`)
+          span.phone-link__number= site.phone
+          +icon('phone', 24, 24).phone-link__icon
+        a.burger-btn(href='#menu', aria-label='Open navigation menu')
+          +icon('burger', 24, 24).burger-btn__icon--default
+          +icon('burger-hover', 24, 24).burger-btn__icon--hover

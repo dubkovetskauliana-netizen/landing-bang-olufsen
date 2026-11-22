@@ -4,8 +4,7 @@ import path from 'path';
 
 const inputDir = './raw-images';
 const outputDir = './src/assets/images';
-const widths =;
-
+const widths = [400, 800, 1440];
 
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 

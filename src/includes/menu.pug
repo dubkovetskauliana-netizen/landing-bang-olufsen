@@ -1,0 +1,15 @@
+aside#menu.menu(aria-label='Main navigation')
+  .l-container.menu__inner
+    .top-bar
+      a.top-bar__logo(href='#', aria-label='Bang & Olufsen home')
+        +icon('logo', 228, 24)
+      a.icon-btn(href='#', aria-label='Close navigation menu')
+        +icon('close', 24, 24)
+    nav.menu__nav
+      ul.menu__list
+        each item in site.nav
+          li.menu__item
+            a.menu__link(href=item.href)= item.label
+    .menu__contacts
+      a.menu__phone(href=site.phoneHref)= site.phone
+      a.menu__cta(href='tel:+123455555555') CALL TO ORDER

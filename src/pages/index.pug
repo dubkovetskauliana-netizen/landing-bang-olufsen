@@ -1,0 +1,130 @@
+﻿include ../includes/_mixins.pug
+
+doctype html
+html.page(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(
+      name='description',
+      content='Bang & Olufsen — iconic portable speakers, noise-cancelling earphones, soundbars and smart home audio systems.'
+    )
+    title Bang &amp; Olufsen — Your senses. Set free.
+    link(rel='preconnect', href='https://googleapis.com')
+    link(rel='preconnect', href='https://gstatic.com', crossorigin)
+    link(
+      href='https://googleapis.com/css2?family=Manrope:wght@400;700&display=swap',
+      rel='stylesheet'
+    )
+    link(rel='stylesheet', href='../styles/main.scss')
+  body.page__body
+    include ../includes/svg-sprite.pug
+    include ../includes/header.pug
+    include ../includes/menu.pug
+
+    main.main
+      section.hero
+        +picture(
+          'hero',
+          'Bang & Olufsen Beosound speaker on marble stand',
+          1260,
+          720,
+          true,
+          '100vw',
+        ).hero__bg
+        .l-container.hero__content
+          h1.hero__title
+            | Your senses.
+            br
+            | Set free.
+
+      section#recommended.l-section.recommended
+        .l-container
+          h2.section-title Recommended
+          .l-grid.recommended__grid
+            each item in site.recommended
+              .recommended__col
+                +product-card(item)
+
+      section#categories.l-section.categories
+        .l-container
+          h2.section-title Sound. Vision. It’s your pick.
+        each cat in site.categories
+          article.category(class=`category--${cat.layout}`)
+            .l-grid.category__grid
+              each img, idx in cat.images
+                .category__media(class=`category__media--${idx + 1}`)
+                  +picture(
+                    img,
+                    cat.title,
+                    800,
+                    600,
+                    false,
+                    '(min-width: 1260px) 672px, (min-width: 744px) 288px, 130px',
+                  ).category__img
+            h3.category__title= cat.title
+        .categories__action
+          a.btn(href='#recommended') View all
+
+      section#about-us.about
+        .about__banner
+          +picture(
+            'banner-timeless',
+            'Bang & Olufsen turntable and Beoremote Halo',
+            1260,
+            460,
+            false,
+            '100vw',
+          ).about__banner-img
+        .about__body
+          .l-container
+            .l-grid.about__grid
+              h2.section-title.about__title Timeless, for 50 years and counting
+              p.about__text
+                | Bang &amp; Olufsen is expanding its Recreated Classics Program with the launch of Beosystems – a limited edition music system that transcends time by bridging the gap between one of our iconic designs from 1972 and today’s cutting-edge digital technology.
+
+      section#contact-us.l-section.contacts
+        .l-container
+          h2.section-title Contact us
+          .l-grid.contacts__grid
+            form.contact-form.contacts__form(action='#form-sent', method='get')
+              label.visually-hidden(for='contact-name') Name
+              input#contact-name.contact-form__input(
+                type='text',
+                name='name',
+                placeholder='Name',
+                required
+              )
+              label.visually-hidden(for='contact-email') Email
+              input#contact-email.contact-form__input(
+                type='email',
+                name='email',
+                placeholder='Email',
+                required
+              )
+              label.visually-hidden(for='contact-message') Message
+              textarea#contact-message.contact-form__textarea(
+                name='message',
+                placeholder='Message',
+                required
+              )
+              button.btn.contact-form__submit(type='submit') Send
+              p#form-sent.contact-form__status Thank you! Your message has been sent.
+
+            address.contacts__info
+              .contacts__group
+                p.contacts__label Phone
+                a.contacts__value(href=site.phoneHref)= site.phone
+              .contacts__group
+                p.contacts__label Email
+                a.contacts__value(href=`mailto:${site.email}`)= site.email
+              .contacts__group
+                p.contacts__label Address
+                a.contacts__value(href=site.mapUrl, target='_blank', rel='noopener noreferrer')
+                  | 400 first ave.
+                  br
+                  | suite 700
+                  br
+                  | Minneapolis, MN 55401
+
+    include ../includes/footer.pug

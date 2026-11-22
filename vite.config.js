@@ -1,10 +1,12 @@
-import vituum from 'vituum';
+﻿import vituum from 'vituum';
 import pug from '@vituum/vite-plugin-pug';
 import path from 'path';
 import fs from 'fs';
 
+const site = JSON.parse(fs.readFileSync('./src/data/site.json', 'utf-8'));
+
 export default {
-  base:base: '/landing-bang-olufsen/',
+  base: '/landing-bang-olufsen/',
   plugins: [
     vituum({
       imports: {
@@ -14,7 +16,10 @@ export default {
         },
       },
     }),
-    pug({ root: './src' }),
+    pug({
+      root: './src',
+      globals: { site },
+    }),
     {
       name: 'github-pages-assets',
       closeBundle() {

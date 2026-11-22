@@ -1,0 +1,42 @@
+mixin icon(name, width = 24, height = 24)
+  svg.icon(width=width, height=height, aria-hidden='true')&attributes(attributes)
+    use(href=`#icon-${name}`)
+
+mixin picture(name, alt, width = 800, height = 800, isHero = false, sizes = '(min-width: 1260px) 324px, (min-width: 744px) 600px, 280px')
+  picture
+    source(
+      type='image/avif',
+      srcset=`./assets/images/${name}-400.avif 400w, ./assets/images/${name}-800.avif 800w, ./assets/images/${name}-1440.avif 1440w`,
+      sizes=sizes
+    )
+    source(
+      type='image/webp',
+      srcset=`./assets/images/${name}-400.webp 400w, ./assets/images/${name}-800.webp 800w, ./assets/images/${name}-1440.webp 1440w`,
+      sizes=sizes
+    )
+    if isHero
+      img(
+        src=`./assets/images/${name}-1440.jpg`,
+        alt=alt,
+        width=width,
+        height=height,
+        fetchpriority='high',
+        decoding='async'
+      )&attributes(attributes)
+    else
+      img(
+        src=`./assets/images/${name}-800.jpg`,
+        alt=alt,
+        width=width,
+        height=height,
+        loading='lazy',
+        decoding='async'
+      )&attributes(attributes)
+
+mixin product-card(item)
+  article.product-card
+    .product-card__media
+      +picture(item.image, item.title, 600, 600).product-card__img
+    h3.product-card__title= item.title
+    p.product-card__desc= item.description
+    p.product-card__price= item.price

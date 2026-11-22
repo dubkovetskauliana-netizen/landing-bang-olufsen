@@ -1,0 +1,119 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 24px;
+
+  @include on-tablet {
+    padding-block: 32px;
+  }
+
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+    color: $color-text-main;
+    transition: opacity $transition-base;
+
+    &:hover {
+      opacity: 0.75;
+    }
+
+    .icon {
+      width: 164px;
+      height: 16px;
+
+      @include on-tablet {
+        width: 245px;
+        height: 24px;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    @include on-tablet {
+      gap: 32px;
+    }
+  }
+}
+
+.phone-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: $color-text-main;
+
+  &__number {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 16px;
+      letter-spacing: 2px;
+      opacity: 0;
+      transform: translateX(8px);
+      pointer-events: none;
+      transition:
+        opacity $transition-base,
+        transform $transition-base;
+    }
+  }
+
+  &:hover &__number,
+  &:focus-visible &__number {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+}
+
+.burger-btn,
+.icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: $color-text-main;
+}
+
+.burger-btn {
+  &__icon--hover {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
+
+  &__icon--default {
+    transition: opacity $transition-base;
+  }
+
+  &:hover &__icon--default,
+  &:focus-visible &__icon--default {
+    opacity: 0;
+  }
+
+  &:hover &__icon--hover,
+  &:focus-visible &__icon--hover {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,17 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.l-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: $gutter-mobile;
+
+  @include on-tablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: $gutter-desktop;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}

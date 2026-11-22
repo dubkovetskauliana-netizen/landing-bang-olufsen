@@ -1,0 +1,50 @@
+{
+  "phone": "+1 234 5555-55-55",
+  "phoneHref": "tel:+123455555555",
+  "email": "hello@bang&olufsen.com",
+  "address": "400 first ave.\nsuite 700\nMinneapolis, MN 55401",
+  "mapUrl": "https://google.com",
+  "nav": [
+    { "label": "Recommended", "href": "#recommended" },
+    { "label": "Categories", "href": "#categories" },
+    { "label": "About Us", "href": "#about-us" },
+    { "label": "Contact Us", "href": "#contact-us" }
+  ],
+  "recommended": [
+    {
+      "image": "product-beosound-a5",
+      "title": "BEOSOUND A5",
+      "description": "Huge sound anywhere – in the home or outdoors. Beosound A5 is a Wi-Fi and Bluetooth speaker with long-lasting battery and wireless charging built in.",
+      "price": "$ 1299.00"
+    },
+    {
+      "image": "product-beoplay-hx",
+      "title": "BEOPLAY HX",
+      "description": "Wireless noise-cancelling headphones. Listen in comfort whether you're on a call, working from home or taking a moment for yourself.",
+      "price": "$ 499.00"
+    },
+    {
+      "image": "product-beosound-theatre",
+      "title": "BEOSOUND THEATRE",
+      "description": "Four patent-pending acoustic innovations in one sleek soundbar envelop you in sound from every angle. Made to fit any TV.",
+      "price": "$ 3199.00"
+    }
+  ],
+  "categories": [
+    {
+      "title": "Portable speakers",
+      "layout": "wide-left",
+      "images": ["cat-speakers-1", "cat-speakers-2"]
+    },
+    {
+      "title": "Earphones",
+      "layout": "wide-right",
+      "images": ["cat-earphones-1", "cat-earphones-2"]
+    },
+    {
+      "title": "Smart Home",
+      "layout": "wide-left",
+      "images": ["cat-smarthome-1", "cat-smarthome-2"]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.recommended {
+  padding-top: 64px;
+  padding-bottom: 48px;
+
+  @include on-tablet {
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
+
+  &__grid {
+    row-gap: 40px;
+
+    @include on-tablet {
+      row-gap: 56px;
+    }
+  }
+
+  &__col {
+    grid-column: 1 / -1;
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+  }
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__media {
+    margin-bottom: 24px;
+    overflow: hidden;
+    background-color: $color-bg-surface;
+    border-radius: 4px;
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform $transition-base;
+  }
+
+  &:hover &__img {
+    transform: scale(1.04);
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: $color-text-main;
+  }
+
+  &__desc {
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: $color-text-main;
+  }
+
+  &__price {
+    margin-top: auto;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: $color-text-main;
+  }
+}
